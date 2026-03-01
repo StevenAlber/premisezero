@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premise Zero — When Your Life Model Breaks</title>
+  <meta name="description" content="You are not panicking. You are experiencing Premise Collapse. There is a protocol for it.">
+  <meta property="og:title" content="Premise Zero — The Life Model is Broken">
+  <meta property="og:description" content="For people who just realized their life premise has shattered. A 10-minute cognitive override to restore decision-making capacity.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://premisezero.global">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Premise Zero">
+  <meta name="twitter:description" content="You are not panicking. You are experiencing Premise Collapse. There is a protocol for it.">
+  <meta name="theme-color" content="#0A0A0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #0A0A0F;
+      --amber: #FF6B35;
+      --amber-dim: rgba(255, 107, 53, 0.2);
+      --soft-white: #E8E4DC;
+      --muted: #6B6B6B;
+      --dim-white: #9A9590;
+      --card-bg: #111116;
+      --card-border: #1a1a22;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    ::selection { background: rgba(255, 107, 53, 0.25); color: var(--soft-white); }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: #2a2a32; border-radius: 2px; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--soft-white);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* STATUS BAR */
+    .status-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #1a0a0a;
+      border-bottom: 1px solid #2a1515;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #cc3333;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .status-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #cc6666;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding-bottom: 60px;
+    }
+
+    .hero {
+      padding-top: 80px;
+    }
+
+    /* DIVIDERS */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--amber-dim), transparent);
+      margin-bottom: 60px;
+    }
+
+    /* TYPOGRAPHY */
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .time-display {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 400;
+      line-height: 1.35;
+      margin-bottom: 32px;
+    }
+
+    h1 .amber {
+      color: var(--amber);
+    }
+
+    .subtitle {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--dim-white);
+      margin-bottom: 20px;
+    }
+
+    .intelligent {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--soft-white);
+    }
+
+    /* SECTION LABELS */
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--amber);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* SECTION HEADINGS */
+    .section-heading {
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+
+    /* BODY TEXT */
+    .body-text {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--dim-white);
+      margin-bottom: 20px;
+    }
+
+    .body-text .highlight {
+      color: var(--soft-white);
+    }
+
+    .body-text em {
+      color: var(--soft-white);
+      font-style: italic;
+    }
+
+    /* THE RULE */
+    .rule-block {
+      border-left: 2px solid var(--amber);
+      padding-left: 24px;
+    }
+
+    .rule-line {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--soft-white);
+      margin-bottom: 16px;
+    }
+
+    .rule-explanation {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--dim-white);
+      margin-top: 8px;
+    }
+
+    /* PROTOCOL */
+    .protocol-heading {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+
+    .protocol-heading .amber {
+      color: var(--amber);
+    }
+
+    .protocol-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--dim-white);
+      margin-bottom: 32px;
+    }
+
+    .protocol-instruction {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--dim-white);
+      margin-bottom: 40px;
+    }
+
+    /* CTA BUTTON */
+    .cta-button {
+      display: block;
+      width: 100%;
+      padding: 20px 32px;
+      background: transparent;
+      border: 1.5px solid var(--amber);
+      border-radius: 6px;
+      color: var(--amber);
+      font-size: 17px;
+      font-family: 'EB Garamond', Georgia, serif;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      background: var(--amber);
+      color: var(--dark);
+    }
+
+    .payment-methods {
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* SOCIAL PROOF */
+    .social-proof {
+      text-align: center;
+      margin-top: 32px;
+      padding: 16px;
+      background: #0d0d14;
+      border-radius: 6px;
+    }
+
+    .social-proof span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--dim-white);
+    }
+
+    .social-proof .count {
+      color: var(--amber);
+      font-weight: 700;
+    }
+
+    /* 5 SIGNS */
+    .sign-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .sign-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: var(--amber);
+      flex-shrink: 0;
+      margin-top: 4px;
+      width: 24px;
+    }
+
+    .sign-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--dim-white);
+    }
+
+    .signs-conclusion {
+      font-size: 15px;
+      color: var(--dim-white);
+      margin-top: 32px;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding-bottom: 80px;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .footer .domain {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-style: normal;
+      margin-top: 32px;
+    }
+
+    .footer .privacy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #3a3a42;
+      font-style: normal;
+      margin-top: 16px;
+    }
+
+    /* POST-PURCHASE VIEW */
+    .post-purchase {
+      display: none;
+    }
+
+    .post-purchase.active {
+      display: block;
+    }
+
+    .pre-purchase.hidden {
+      display: none;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid var(--amber);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 28px;
+    }
+
+    .success-heading {
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    /* AUDIO PLAYER */
+    .audio-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 32px 28px;
+      margin-bottom: 40px;
+    }
+
+    .audio-instruction {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--dim-white);
+      margin-bottom: 16px;
+    }
+
+    .audio-warning {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .audio-player {
+      background: #1a1a22;
+      border-radius: 6px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .play-button {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--amber);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    .play-button:hover {
+      transform: scale(1.05);
+    }
+
+    .play-icon {
+      color: var(--dark);
+      font-size: 20px;
+      margin-left: 3px;
+    }
+
+    .progress-wrapper {
+      flex: 1;
+    }
+
+    .progress-bar {
+      height: 3px;
+      background: #2a2a32;
+      border-radius: 2px;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--amber);
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+
+    .time-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    .time-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .audio-title {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--soft-white);
+      margin-top: 24px;
+    }
+
+    /* CHECKLIST */
+    .checklist-section {
+      border-left: 2px solid var(--amber);
+      padding-left: 24px;
+      margin-bottom: 48px;
+    }
+
+    .checklist-heading {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .checklist-item {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .checklist-item:last-child {
+      border-bottom: none;
+    }
+
+    .checkbox {
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      border: 1.5px solid #3a3a42;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: all 0.2s;
+    }
+
+    .checkbox.checked {
+      border-color: var(--amber);
+      background: var(--amber);
+    }
+
+    .checkbox-mark {
+      color: var(--dark);
+      font-size: 14px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .checkbox.checked .checkbox-mark {
+      display: block;
+    }
+
+    .checklist-label {
+      font-size: 15px;
+      color: var(--soft-white);
+      font-weight: 600;
+      margin-bottom: 4px;
+      transition: color 0.2s;
+    }
+
+    .checklist-item.checked .checklist-label {
+      color: var(--amber);
+    }
+
+    .checklist-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* BYPASS CODES */
+    .bypass-card {
+      background: #0d0d14;
+      border: 1px solid rgba(255, 107, 53, 0.2);
+      border-radius: 8px;
+      padding: 32px 28px;
+    }
+
+    .bypass-intro {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--dim-white);
+      margin-bottom: 8px;
+    }
+
+    .bypass-heading {
+      font-size: 18px;
+      color: var(--soft-white);
+      margin-bottom: 24px;
+    }
+
+    .code-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: #111118;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .code-value {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--amber);
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+
+    .copy-btn {
+      background: none;
+      border: 1px solid #3a3a42;
+      color: var(--muted);
+      padding: 6px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .copy-btn.copied {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      margin-top: 20px;
+      padding: 16px;
+      background: #1a5c2e;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 15px;
+      font-family: 'EB Garamond', Georgia, serif;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1e6b35;
+    }
+
+    .share-preview {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 12px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 480px) {
+      .container { padding: 0 20px; }
+      .hero { padding-top: 60px; }
+      .status-text { font-size: 9px; letter-spacing: 1px; }
+      .audio-player { padding: 16px; gap: 12px; }
+      .play-button { width: 42px; height: 42px; }
+      .code-row { flex-direction: column; gap: 8px; align-items: flex-start; }
+      .copy-btn { align-self: flex-end; }
+    }
+
+    /* FADE IN ANIMATION */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <div class="status-dot"></div>
+    <span class="status-text mono">Gulf Airspace Compromised — DXB/AUH Closed Until Further Notice</span>
+  </div>
+
+  <div class="container">
+
+    <!-- PRE-PURCHASE VIEW -->
+    <div class="pre-purchase" id="prePurchase">
+
+      <!-- HERO -->
+      <section class="hero">
+        <p class="time-display mono" id="timeDisplay">It is -- : --, March 1, in Dubai.</p>
+
+        <h1>
+          Your hands are restless.
+          <span style="display:block; margin-top:8px;">
+            You are refreshing the news <span class="amber">every 14 seconds.</span>
+          </span>
+        </h1>
+
+        <p class="subtitle">Your children are asleep in the next room, and you cannot make a single coherent decision.</p>
+
+        <p class="intelligent">That is an intelligent response.</p>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- DIAGNOSIS -->
+      <section class="fade-section" id="diagnosis">
+        <p class="section-label mono">Diagnosis</p>
+        <h2 class="section-heading">You are not having a panic attack.</h2>
+        <p class="body-text">You are experiencing <em>Premise Collapse</em>.</p>
+        <p class="body-text">For years, your entire life model — your safety, your wealth, your family's future — was built on a single premise: <span class="highlight">this geography is immune.</span></p>
+        <p class="body-text">24 hours ago, that premise evaporated. Your brain is desperately trying to run its normal operating system on a reality that no longer exists. That is why you feel paralyzed.</p>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- THE RULE -->
+      <section class="fade-section" id="rule">
+        <p class="section-label mono">The Rule</p>
+        <div class="rule-block">
+          <p class="rule-line">Do not look at flight prices.</p>
+          <p class="rule-line">Do not move money.</p>
+          <p class="rule-line">Do not wake your spouse to "strategize."</p>
+          <p class="rule-explanation">You cannot make a catastrophic 5-year decision while your biology is in acute fight-or-flight mode. A shattered mind cannot build a safe house.</p>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- THE PROTOCOL -->
+      <section class="fade-section" id="protocol">
+        <p class="section-label mono">The Protocol</p>
+        <h2 class="protocol-heading">
+          Before you decide <span class="amber">what</span> to do,<br>
+          you must repair <span class="amber">how</span> you think.
+        </h2>
+        <p class="protocol-text">This is not therapy. This is not meditation. This is a 10-minute operational reset — an engineered protocol that physically breaks the cortisol loop, drops your heart rate, and forces your executive decision-making center back online.</p>
+        <p class="protocol-instruction">Put on headphones. Lock the door. Press play. You will know exactly how to think when it ends.</p>
+
+        <button class="cta-button" id="ctaButton" onclick="handlePurchase()">
+          INITIATE 10-MINUTE COGNITIVE OVERRIDE — €9
+        </button>
+        <p class="payment-methods mono">Apple Pay · Google Pay · Instant Access</p>
+
+        <div class="social-proof">
+          <span>Active recalibrations in DXB/AUH in the last 60 min: <span class="count" id="activeCount">412</span></span>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- 5 SIGNS -->
+      <section class="fade-section" id="signs">
+        <p class="section-label mono">Self-Assessment</p>
+        <h2 class="section-heading" style="font-size:22px;">The 5 Signs of Premise Collapse</h2>
+
+        <div class="sign-item">
+          <span class="sign-number mono">01</span>
+          <p class="sign-text">You keep checking the same information repeatedly</p>
+        </div>
+        <div class="sign-item">
+          <span class="sign-number mono">02</span>
+          <p class="sign-text">You feel angry at trivial things</p>
+        </div>
+        <div class="sign-item">
+          <span class="sign-number mono">03</span>
+          <p class="sign-text">You cannot remember what you were doing 10 minutes ago</p>
+        </div>
+        <div class="sign-item">
+          <span class="sign-number mono">04</span>
+          <p class="sign-text">You feel guilty for feeling scared</p>
+        </div>
+        <div class="sign-item">
+          <span class="sign-number mono">05</span>
+          <p class="sign-text">You want someone to tell you what to do, but don't trust anyone's advice</p>
+        </div>
+
+        <p class="signs-conclusion">If you recognize three or more of these in yourself right now — you are in active premise collapse. There is a protocol for it.</p>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- FOOTER -->
+      <section class="footer">
+        <p>Built by a strategist who watched DXB airspace collapse from Moscow airport.</p>
+        <p style="margin-top:8px;">Ticket bought at 33,000₽. Same route today: 170,000₽.</p>
+        <p class="domain">premisezero.global</p>
+        <p class="privacy">No spam. Only operational updates. Updates every 6 hours until stabilization.</p>
+      </section>
+    </div>
+
+    <!-- POST-PURCHASE VIEW -->
+    <div class="post-purchase" id="postPurchase">
+      <section style="padding-top:60px;">
+        <div style="text-align:center; margin-bottom:60px;">
+          <div class="success-icon">✓</div>
+          <h1 class="success-heading">Your executive function is back online.</h1>
+        </div>
+
+        <!-- AUDIO PLAYER -->
+        <div class="audio-card">
+          <p class="audio-instruction">Put on headphones. Look away from the news. Press play.</p>
+          <p class="audio-warning">Do not scroll down until the track finishes.</p>
+          <div class="audio-player">
+            <button class="play-button" id="playBtn">
+              <span class="play-icon">▶</span>
+            </button>
+            <div class="progress-wrapper">
+              <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+              <div class="time-labels">
+                <span class="time-label">0:00</span>
+                <span class="time-label">10:00</span>
+              </div>
+            </div>
+          </div>
+          <p class="audio-title">10-Minute Cognitive Override — The Baseline Protocol</p>
+        </div>
+
+        <!-- CHECKLIST -->
+        <div class="checklist-section">
+          <h2 class="checklist-heading">Next 12 Hours — Interactive Checklist</h2>
+
+          <div class="checklist-item" onclick="toggleCheck(this)">
+            <div class="checkbox"><span class="checkbox-mark">✓</span></div>
+            <div>
+              <p class="checklist-label">Information Blackout</p>
+              <p class="checklist-desc">Close FlightRadar24 and Telegram news channels. You cannot control the corridor. Accept temporary lock-in.</p>
+            </div>
+          </div>
+
+          <div class="checklist-item" onclick="toggleCheck(this)">
+            <div class="checkbox"><span class="checkbox-mark">✓</span></div>
+            <div>
+              <p class="checklist-label">Comms Protocol</p>
+              <p class="checklist-desc">Send to family: "I am safe. Airspace is temporarily closed. Sheltering in place. Will update in 12 hours. Do not worry."</p>
+            </div>
+          </div>
+
+          <div class="checklist-item" onclick="toggleCheck(this)">
+            <div class="checkbox"><span class="checkbox-mark">✓</span></div>
+            <div>
+              <p class="checklist-label">Capital Check</p>
+              <p class="checklist-desc">Verify local fiat liquidity offline. Tonight, you sleep. Tomorrow, we map your extraction vector.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BYPASS CODES -->
+        <div class="bypass-card">
+          <p class="bypass-intro">Your network is still trapped in the premise collapse loop.</p>
+          <p class="bypass-heading">You have 3 emergency bypass codes for your inner circle.</p>
+
+          <div class="code-row">
+            <code class="code-value" id="code1"></code>
+            <button class="copy-btn" onclick="copyCode(this, 0)">COPY</button>
+          </div>
+          <div class="code-row">
+            <code class="code-value" id="code2"></code>
+            <button class="copy-btn" onclick="copyCode(this, 1)">COPY</button>
+          </div>
+          <div class="code-row">
+            <code class="code-value" id="code3"></code>
+            <button class="copy-btn" onclick="copyCode(this, 2)">COPY</button>
+          </div>
+
+          <button class="whatsapp-btn" onclick="shareWhatsApp()">
+            <span style="font-size:18px;">💬</span> Share to WhatsApp
+          </button>
+          <p class="share-preview">"Stop refreshing the news. Someone finally put a name to what our heads are doing right now: 'Premise Collapse.' If your brain is spinning, run this 10-minute cognitive override before you make any decisions..."</p>
+        </div>
+
+        <section class="footer" style="margin-top:48px;">
+          <p class="domain">premisezero.global</p>
+        </section>
+      </section>
+    </div>
+
+  </div>
+
+  <script>
+    // Dubai time display
+    function updateDubaiTime() {
+      const now = new Date();
+      const timeOpts = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Dubai' };
+      const dateOpts = { month: 'long', day: 'numeric', timeZone: 'Asia/Dubai' };
+      const time = now.toLocaleTimeString('en-GB', timeOpts);
+      const date = now.toLocaleDateString('en-GB', dateOpts);
+      document.getElementById('timeDisplay').textContent = `It is ${time}, ${date}, in Dubai.`;
+    }
+    updateDubaiTime();
+    setInterval(updateDubaiTime, 30000);
+
+    // Active count ticker
+    let count = 412;
+    setInterval(() => {
+      count += Math.floor(Math.random() * 3) + 1;
+      const el = document.getElementById('activeCount');
+      if (el) el.textContent = count.toLocaleString();
+    }, 8000);
+
+    // Fade-in sections on scroll
+    function checkFade() {
+      document.querySelectorAll('.fade-section').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkFade);
+    setTimeout(checkFade, 300);
+
+    // Generate bypass codes
+    function generateCode() {
+      return 'PZ-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+    }
+
+    // Handle purchase
+    function handlePurchase() {
+      // In production, this redirects to Stripe checkout
+      // For demo, switch views
+      document.getElementById('prePurchase').classList.add('hidden');
+      document.getElementById('postPurchase').classList.add('active');
+
+      document.getElementById('code1').textContent = generateCode();
+      document.getElementById('code2').textContent = generateCode();
+      document.getElementById('code3').textContent = generateCode();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Toggle checklist
+    function toggleCheck(item) {
+      item.classList.toggle('checked');
+      const checkbox = item.querySelector('.checkbox');
+      checkbox.classList.toggle('checked');
+    }
+
+    // Copy bypass code
+    function copyCode(btn, idx) {
+      const code = document.getElementById('code' + (idx + 1)).textContent;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code);
+      }
+      btn.textContent = 'COPIED';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'COPY';
+        btn.classList.remove('copied');
+      }, 2000);
+    }
+
+    // WhatsApp share
+    function shareWhatsApp() {
+      const text = encodeURIComponent(
+        "Stop refreshing the news. Someone finally put a name to what our heads are doing right now: \"Premise Collapse.\" If your brain is spinning, run this 10-minute cognitive override before you make any decisions about flights or money tonight. It snapped my logic back online. Get your head straight first: https://premisezero.global"
+      );
+      window.open('https://wa.me/?text=' + text, '_blank');
+    }
+  </script>
+
+</body>
+</html>
