@@ -486,8 +486,10 @@
     updateDubaiTime();
     setInterval(updateDubaiTime, 30000);
 
-    // Active count ticker
-    let count = 412;
+    // Active count ticker — random start from pool
+    const startCounts = [1271, 1369, 1946, 1627, 1386];
+    let count = startCounts[Math.floor(Math.random() * startCounts.length)];
+    document.getElementById('activeCount').textContent = count.toLocaleString();
     setInterval(() => {
       count += Math.floor(Math.random() * 3) + 1;
       const el = document.getElementById('activeCount');
